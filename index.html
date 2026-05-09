@@ -370,7 +370,8 @@
   <ul class="nav-links">
     <li><a href="#fem">FEM</a></li>
     <li><a href="#catia">CATIA</a></li>
-    <li><a href="#production">Production</a></li>
+    <!--
+    <li><a href="#production">Production</a></li>-->
     <li><a href="#dic">DIC Tool</a></li>
   </ul>
 </nav>
@@ -380,11 +381,11 @@
   <div class="container">
     <div class="hero-label">Portfolio — Motorsport Engineering</div>
     <h1 class="hero-name"> Sebastian <em> Shiels - Cobar </em></h1>
-    <p class="hero-tagline">Composite Design, Structural Analysis and Manufacturing — built for the limits of Formula 1.</p>
+    <p class="hero-tagline">Composite Design, Analysis and Research — built for the limits of Formula 1.</p>
     <div class="hero-meta">
       <div class="hero-meta-item">
         Discipline
-        <span>Structures & Composites,</span>
+        <span>Structures & Composites</span>
       </div>
       <div class="hero-meta-item">
         Focus
@@ -410,7 +411,7 @@
       <div class="content">
         <!---INTRO-->
         <p>
-          Building high strength:wieght, reliable carbon rims for competition conditions is of paramount importance to teams competing for the title of "Best in the World".
+          Building high strength to weight, reliable carbon rims for competition conditions is of paramount importance to teams competing for the title of "Best in the World".
           Thus, the top level goal with performing my FEA was to ensure the novel rim geometry would be able withstand 4kN in all 3 axis, via the design of a brand-new
           carbon fiber laminate. The following section dives deeper into the technical details surrounding meshing, composite design, analysis and the feedback loop. 
         </p>
@@ -471,7 +472,7 @@
                 <p style="margin: 0; font-size: .97rem;">The next mesh to be made was the inserts, which were placed in the pickup points for the Drivetrain. This was done via 3D HEX 
                   elements, as opposed to the 2D elements used for the carbon fiber. The pyramids visible are the FREEZE Contacts applied to the elements to simulate the contact patch between
                   the inserts and the surrounding carbon. The design of the inserts was likewise a feedback loop between observing the stresses from the FEA results, and adjusting the thickness of the walls accordingly.
-                  This was a crucial step, since the limiting stress concentrations were observed to always be around the inserts, where the composite displayed both the highest Tsai-Wu and Puck Failure values. 
+                  This was a crucial step, since the limiting stress concentrations were observed to always be around the inserts, where the composite displayed both the highest Tsai-Wu and Puck Failure Indices. 
 
 
                 </p>
@@ -497,7 +498,7 @@
               <p style="font-family: 'JetBrains Mono', monospace; font-size: .58rem; 
                         letter-spacing: .16em; text-transform: uppercase; color: #5A5248; 
                         margin-bottom: .6rem;">Laminate and Composite Design</p>
-                <p style="margin: 0; font-size: .97rem;"> The final layup was designed when all composite failure indices were within the established acceptable range. The limiting load-case was the front outer rim during a 
+                <p style="margin: 0; font-size: .97rem;"> The final layup was designed when all composite failure indices (CFI) were within the established acceptable range. The limiting load-case was the front outer rim during a 
                     maximum velocity turn with maximum steering input. For Tsai-Wu it was to be below 0.6 at all points. Furthermore, compliance was to be below 5170.55, and an additional analysis on PUCK failure modes for 
                     the UD plies had an upper bound of 0.3. The plies in red are UD oriented in the axial,
                     zero degree direction. The green are +-45 AS4C plies, the yellow are 0/90 AS4C plies and the purple plies are reinforcement patches along the flanges for the tire-mounting loadcase. Furthermore, the important
@@ -555,7 +556,7 @@
           <div style="margin-top: 1rem;">
             <p style="font-family: 'JetBrains Mono', monospace; font-size: .58rem; 
                       letter-spacing: .16em; text-transform: uppercase; color: #5A5248;">
-              FEA — Load case animation</p>
+              FEA — Bump and Braking Loadcase </p>
           </div>
 
         </div>
@@ -657,7 +658,7 @@
             <div style="display: flex; flex-direction: column; justify-content: center;">
               <p style="font-family: 'JetBrains Mono', monospace; font-size: .58rem; 
                         letter-spacing: .16em; text-transform: uppercase; color: #5A5248; 
-                        margin-bottom: .6rem;">Producibility Checks</p>
+                        margin-bottom: .6rem;">Creating DXF Files</p>
               <p style="margin: 0; font-size: .97rem;"> Finally, it was time to create the DXF files for plycutting, where the plies were projected onto a 2D plane, 
                 exactly like an unrolled sheet of carbon. Nesting efficiencies and toolpaths became important quickly, as operating within a budget means you need to 
                 waste as little carbon and time as possible. Having completed the production of the ply shapes allowed progression to the actual production plans. 
@@ -691,7 +692,7 @@
     <div class="section-body">
       <div></div>
       <div class="content">
-        <p> A large problem in the world of composite academia is understanding how fatigue effects crack propagation within carbon fiber. Working with Dr. Manoj and Dr. de Castro 
+        <p> A large problem in the world of composite academia is understanding how fatigue effects crack propagation within carbon fiber. Working with Dr. Manoj and Dr. Bernardes de Castro 
           at TU Delft's Aerospace Structures and Materials Lab on fatigue crack growth in carbon fiber led me to building the following tool.
           It takes DIC speckle pattern images from an ENF 3 point bending fatigue test, and maps the Von Misses Strain compared to an initial reference frame. It compliments standard
           compliance based methods in allowing researchers to see how and where strain is occurring. 
