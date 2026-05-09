@@ -559,17 +559,19 @@
           </div>
 
         </div>
-        <div class="pillars">
-          <span class="pillar">HyperMesh</span>
-          <span class="pillar">Optistruct</span>
-          <span class="pillar">HyperView</span>
-          <span class="pillar">Meshing</span>
-          <span class="pillar">Linear</span>
-          
-        </div>
       </div>
     </div>
   </div>
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; 
+              gap: .6rem; padding: 2rem 3rem 0;">
+    <span class="pillar">HyperMesh</span>
+    <span class="pillar">Optistruct</span>
+    <span class="pillar">HyperView</span>
+    <span class="pillar">Meshing</span>
+    <span class="pillar">Linear</span>
+  </div>
+
 </section>
 
 <!-- CATIA -->
@@ -582,47 +584,101 @@
     <div class="section-body">
       <div></div>
       <div class="content">
+
+        
         <p>
-          I design with Composites in mind from the first sketch. In CATIA V5/V6, my workflow is parametric by default — every dimension is driven by design intent, enabling rapid iteration without geometry rebuilds.
+          Now for the sweet science of making a FEM Laminate a reality. I used Catia Composites, specifically Composite Design, 
+          Generative Shape Design and the occasional Lifecycle for collaboration, to produce DXF files for ply cutting machines. My main goal was to stay as true 
+          to the designed laminate as possible whilst still considering the need for overlaps between plies, maintaining correct orientation and alignment of fibers. It was a baptism by
+          fire to be able to learn a new CATIA editor from scratch in 2 weeks to produce these, and I'l break down exactly how I approached producing them. 
         </p>
-        <p>
-          For composite components, I work directly with ply stacking definitions and draping simulations, ensuring what is modelled is what can be laid up. Surface quality and curvature continuity are treated as engineering constraints, not aesthetic choices.
-        </p>
-        <p>
-          I maintain clean, well-structured part trees and assembly hierarchies that survive revision cycles and hand-off to analysis, tooling, and Composites teams without loss of context.
-        </p>
-        <ul class="approach-list">
-          <li>
-            <span class="idx">—</span>
-            <span>Parametric part and skeleton modelling for top-down assembly design.</span>
-          </li>
-          <li>
-            <span class="idx">—</span>
-            <span>GSD surface modelling for aerodynamic surfaces, ensuring curvature continuity to Class A standards.</span>
-          </li>
-          <li>
-            <span class="idx">—</span>
-            <span>Composites workbench: ply definition, zone-based design, and flattening for cutting patterns.</span>
-          </li>
-          <li>
-            <span class="idx">—</span>
-            <span>Drawing and model-based definition (MBD) — PMI annotation for Composites without 2D drawings.</span>
-          </li>
-        </ul>
+
+        <!---IMAGES-->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; 
+                      padding: 2rem 0; border-top: 1px solid #2C2920;">
+            <img src="images/CATIA/WireFrame.png" alt="FEM stress result"
+                style="width: 100%; display: block; opacity: .92;" />
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+              <p style="font-family: 'JetBrains Mono', monospace; font-size: .58rem; 
+                        letter-spacing: .16em; text-transform: uppercase; color: #5A5248; 
+                        margin-bottom: .6rem;">Overlaps and Divisions</p>
+              <p style="margin: 0; font-size: .97rem;"> The first step in making the laminate a reality was designing the outlines. Here, time-constraints regarding manufacturing start
+                to play a dominant role, as having too many plies, although more similar to the FEA representation, will take much longer during layups and QC. Thus, I decided on 8 plies
+                with geometries similar to the one to the left, to be laminated around the rim, with 15mm of overlap between neighboring plies. The square cut-outs near the flange are 
+                a region where I have removed the overlap, i.e., there will be a butt-joint between neighboring plies locally. This was done to give the beadseat, where the tire's bead makes contact, 
+                to have a smooth, undisturbed surface to sit on. In previous designs, leakage was observed in this region due to uneven surface finishes, and we decided to eliminate any 
+                precursors to that unevenness by removing the overlaps that cause it.
+                
+
+
+              </p>
+            </div>
+          </div>
+
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; 
+                      padding: 2rem 0; border-top: 1px solid #2C2920;">
+            <img src="images/CATIA/StairCase.png" alt="FEM stress result"
+                style="width: 100%; display: block; opacity: .92;" />
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+              <p style="font-family: 'JetBrains Mono', monospace; font-size: .58rem; 
+                        letter-spacing: .16em; text-transform: uppercase; color: #5A5248; 
+                        margin-bottom: .6rem;">Staircasing</p>
+              <p style="margin: 0; font-size: .97rem;"> Furthermore, the staircases still needed to be implemented, so dividing up that large ply into smaller ones was done, as an 
+                example here on the left shows, but this time done with the UD ply, which is a bit thinner, since neighboring UD plies do not need to overlap, as they are always oriented
+                in the axial, 0 degree direction. 
+
+
+              </p>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; 
+                      padding: 2rem 0; border-top: 1px solid #2C2920;">
+            <img src="images/CATIA/PlyProducibility.png" alt="FEM stress result"
+                style="width: 100%; display: block; opacity: .92;" />
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+              <p style="font-family: 'JetBrains Mono', monospace; font-size: .58rem; 
+                        letter-spacing: .16em; text-transform: uppercase; color: #5A5248; 
+                        margin-bottom: .6rem;">Producibility Checks</p>
+              <p style="margin: 0; font-size: .97rem;"> Each individual ply shape was checked for excessive strain deformation in its respective layup position, to make sure that
+                fiber orientation was not lost via stretching across curves. Here you can see a UD ply being checked, with its seed curve being the flange, where the hand-layup will 
+                physically start. 
+
+              </p>
+            </div>
+          </div>
+
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; 
+                      padding: 2rem 0; border-top: 1px solid #2C2920;">
+            <img src="images/CATIA/Image7.png" alt="FEM stress result"
+                style="width: 100%; display: block; opacity: .92;" />
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+              <p style="font-family: 'JetBrains Mono', monospace; font-size: .58rem; 
+                        letter-spacing: .16em; text-transform: uppercase; color: #5A5248; 
+                        margin-bottom: .6rem;">Producibility Checks</p>
+              <p style="margin: 0; font-size: .97rem;"> Finally, it was time to create the DXF files for plycutting, where the plies were projected onto a 2D plane, 
+                exactly like an unrolled sheet of carbon. Nesting efficiencies and toolpaths became important quickly, as operating within a budget means you need to 
+                waste as little carbon and time as possible. Having completed the production of the ply shapes allowed progression to the actual production plans. 
+
+              </p>
+            </div>
+          </div>
+
         <div class="pillars">
           <span class="pillar">CATIA V5</span>
           <span class="pillar">CATIA V6 / 3DEXPERIENCE</span>
-          <span class="pillar">GSD</span>
-          <span class="pillar">Composites WB</span>
+          <span class="pillar">Composite Design</span>
           <span class="pillar">Part Design</span>
-          <span class="pillar">DMU Kinematics</span>
+          <span class="pillar">Generative Shape Design</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRODUCTION -->
+<!-- PRODUCTION 
 <section id="production" class="section">
   <div class="container">
     <div class="section-header">
@@ -667,7 +723,7 @@
     </div>
   </div>
 </section>
-
+-->
 <!-- DIC -->
 <section id="dic" class="section">
   <div class="container">
@@ -715,11 +771,11 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span class="footer-copy">Your Name — Structural & Composites Engineer</span>
+      <span class="footer-copy">Sebastian Shiels - Cobar — Structural & Composites Engineer</span>
       <div class="footer-links">
-        <a href="mailto:your@email.com">Email</a>
-        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-        <a href="https://github.com/yourhandle" target="_blank">GitHub</a>
+        <a href="ssc.aerospace@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/sebastian-s-c" target="_blank">LinkedIn</a>
+        <a href="https://github.com/shielscobar" target="_blank">GitHub</a>
       </div>
     </div>
   </div>
