@@ -38,31 +38,6 @@ python3 plot_diagnostics.py         # macOS / Linux
 
 ---
 
-## Configuration (important – do this first!)
-
-Open **`config.py`** in any text editor and update:
-
-```python
-# The folder containing your .tif / .tiff image sequence
-IMAGE_DIR = Path(r"C:\Users\YOUR_NAME\path\to\images")
-
-# Where outputs will be saved
-OUTPUT_DIR = Path(r"C:\Users\YOUR_NAME\path\to\outputs\diagnostics")
-
-# Pixel size in mm  (check your DIC setup)
-PIXEL_SIZE_MM = 0.0444
-
-# Image row of the crack midline
-MIDLINE_ROW = 1070
-
-# Pixel crop of the specimen region
-SPECIMEN_ROI_Y = (671, 1163)   # (top_row, bottom_row)
-SPECIMEN_ROI_X = (15,  2432)   # (left_col, right_col)
-```
-
-**Do not edit `plot_diagnostics.py` itself.**
-
----
 
 ## Usage
 
